@@ -1,3 +1,5 @@
+import './styles.css'
+
 console.log("Why are we still here?");
 console.log("Yes");
 
