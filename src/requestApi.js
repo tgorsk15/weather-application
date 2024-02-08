@@ -22,6 +22,8 @@ export const weatherRequest = async function () {
     }
     console.log(response)
 
+    // maybe implement a try and catch here!!:
+
     const weatherData = await response.json();
     console.log(weatherData)
 

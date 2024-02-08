@@ -29,4 +29,19 @@ export const processApiController = function (weatherData) {
 
     console.log(weatherData);
 
+    console.log(weatherData.current.condition.text);
+
+
+
+
+    // create a function that processes each forecast's hour's information
+    // create a function factory to reduce code
+
+    // NEW IDEA: maybe assign a variable to the ARRAY of all the forecasted hours
+    // in the weatherData ... and then do a forEach loop on them to
+    // generate their individual boxes/information
+    function gatherHourForecast() {
+        console.log(weatherData)
+    }
+
 }
