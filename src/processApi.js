@@ -6,6 +6,7 @@
 // an instance of a weather info object would need to get deleted
 // once the user searches a new location
 import { weatherRequest } from "./requestApi";
+import { controllerDOM } from "./userInterface";
 
 
 const currentWeatherObject = {
@@ -29,7 +30,7 @@ export const processApiController = function (weatherData) {
 
     console.log(weatherData);
 
-    //
+    const DOMRun = controllerDOM();
    
 
 
@@ -55,6 +56,13 @@ export const processApiController = function (weatherData) {
         // trigger a run of the createForecastBox funciton here?
         forecastDay.forEach(hour => {
             console.log(hour.time);
+            const timeString = hour.time.slice(-5)
+            console.log(timeString);
+
+            const weatherConditionString = hour.condition.text;
+            console.log(weatherConditionString);
+
+            DOMRun.createHourBox(timeString, weatherConditionString);
         });
         
     }

@@ -6,10 +6,12 @@ const topHalf = document.querySelector('top-half');
 const bottomHalf = document.querySelector('bottom-half');
 
 
-const controllerDOM = function () {
+// eslint-disable-next-line import/prefer-default-export
+export const controllerDOM = function () {
 
-    function createHourBox() {
-
+    function createHourBox(timeString, weatherConditionString) {
+        console.log(timeString);
+        console.log(weatherConditionString);
 
     }
 
