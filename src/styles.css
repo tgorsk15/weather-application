@@ -3,7 +3,12 @@ body {
 }
 
 .weather-card-container {
-
+    background-color: white;
+    min-height: 80vh;
+    max-width: 200vh;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    
 }
 
 .top-half {
@@ -11,5 +16,5 @@ body {
 }
 
 .bottom-half {
-    
+
 }
