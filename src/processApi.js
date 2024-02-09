@@ -57,10 +57,10 @@ export const processApiController = function (weatherData) {
         forecastDay.forEach(hour => {
             console.log(hour.time);
             const timeString = hour.time.slice(-5)
-            console.log(timeString);
+            // console.log(timeString);
 
             const weatherConditionString = hour.condition.text;
-            console.log(weatherConditionString);
+            // console.log(weatherConditionString);
 
             DOMRun.createHourBox(timeString, weatherConditionString);
         });

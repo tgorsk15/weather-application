@@ -4,10 +4,10 @@ body {
 
 .weather-card-container {
     background-color: white;
-    min-height: 80vh;
+    min-height: 83vh;
     max-width: 200vh;
     display: grid;
-    grid-template-rows: 2fr 1fr;
+    grid-template-rows: 2fr 1.2fr;
     
 }
 
@@ -16,5 +16,18 @@ body {
 }
 
 .bottom-half {
+    width: 100%;
+}
 
+.forecast-container {
+    display: flex;
+    background-color: rgb(223, 247, 247);
+    height: 170px;
+
+}
+
+.forecast-box {
+    height: 50px;
+    background-color: lightsalmon;
+    margin: 10px;
 }
