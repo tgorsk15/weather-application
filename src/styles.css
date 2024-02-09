@@ -31,3 +31,7 @@ body {
     background-color: lightsalmon;
     margin: 10px;
 }
+
+.forecast-icon {
+    height: 50px;
+}
