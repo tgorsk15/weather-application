@@ -62,7 +62,10 @@ export const processApiController = function (weatherData) {
             const weatherConditionString = hour.condition.text;
             // console.log(weatherConditionString);
 
-            DOMRun.createHourBox(timeString, weatherConditionString);
+            const temperatureString = hour.temp_f
+            console.log(temperatureString);
+
+            DOMRun.createHourBox(timeString, weatherConditionString, temperatureString);
         });
         
     }
