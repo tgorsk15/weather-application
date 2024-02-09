@@ -17,21 +17,27 @@ body {
 
 .bottom-half {
     width: 100%;
+    overflow: hidden;
 }
 
 .forecast-container {
     display: flex;
+    min-width: 100%;
     background-color: rgb(223, 247, 247);
     height: 170px;
+    overflow-x: auto;
+    margin:  0px 15px;
 
 }
 
 .forecast-box {
-    height: 80px;
+    min-height: 80px;
+    min-width: 100px;
     background-color: lightsalmon;
     margin: 10px;
 }
 
 .forecast-icon {
     height: 50px;
+    width: 50px;
 }

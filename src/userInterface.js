@@ -1,7 +1,12 @@
 import { processApiController } from "./processApi";
 
-import Sun from "./icons/sun.png";
+import sun from "./icons/sun.png";
 import clouds from "./icons/clouds.png";
+import Rain from "./icons/rain.png";
+import scattered from "./icons/scattered.png";
+import snow from "./icons/snow.png";
+import partlyCloudy from "./icons/partly-cloudy.png";
+import storm from "./icons/storm.png";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
@@ -17,16 +22,30 @@ export const controllerDOM = function () {
         console.log(weatherConditionString);
         const weatherString = weatherConditionString.toLowerCase()
         console.log(weatherString);
+        console.log(typeof(weatherString));
         
         const activeIcon = new Image();
 
-        if (weatherString === 'sunny' || weatherString === 'clear') {
-            activeIcon.src = Sun
+        if (weatherString === 'sunny' || weatherString.includes('clear')) {
+            activeIcon.src = sun
 
+        } else if (weatherString.includes('partly cloudy')) {
+            activeIcon.src = partlyCloudy;
+
+        } else if (weatherString.includes('cloudy')) {
+            activeIcon.src = clouds
+            
+        } else if (weatherString.includes('patchy')) {
+            activeIcon.src = scattered
+
+        } else if (weatherString.includes('snow')) {
+            activeIcon.src = snow
+
+        } else if (weatherString.includes('storm')) {
+            activeIcon.src = storm
         }
-        //  else if () {
 
-        // }
+    
 
         return activeIcon
 
