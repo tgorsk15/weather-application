@@ -29,9 +29,16 @@ export const processApiController = function (weatherData) {
 
     console.log(weatherData);
 
-    console.log(weatherData.current.condition.text);
+    //
+   
 
 
+    function gatherCurrentWeather() {
+        console.log(weatherData.current.condition.text);
+
+        console.log(weatherData.current.temp_f)
+    }
+    gatherCurrentWeather();
 
 
     // create a function that processes each forecast's hour's information
@@ -41,7 +48,25 @@ export const processApiController = function (weatherData) {
     // in the weatherData ... and then do a forEach loop on them to
     // generate their individual boxes/information
     function gatherHourForecast() {
-        console.log(weatherData)
+        console.log(weatherData);
+        const forecastDay = weatherData.forecast.forecastday[0].hour;
+        // forecastDays.pop();
+        console.log(forecastDay);
+
+        // trigger a run of the createForecastBox funciton here?
+        forecastDay.forEach(hour => {
+            console.log(hour.time);
+        });
+        
+    }
+    gatherHourForecast();
+
+
+    function getTomorrowWeather() {
+
     }
 
+    function getTwoDaysWeather() {
+
+    }
 }
