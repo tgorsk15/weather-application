@@ -63,10 +63,40 @@ export const processApiController = function (weatherData) {
 
 
     function getTomorrowWeather() {
+        const tomorrowWeather = weatherData.forecast.forecastday[1]
+        console.log(tomorrowWeather);
 
+        const tomorrowDate = tomorrowWeather.date;
+        console.log(tomorrowDate)
+
+        const tomorrowCondition = tomorrowWeather.day.condition.text;
+        console.log(tomorrowCondition);
+
+        const tomorrowHigh = tomorrowWeather.day.maxtemp_f;
+        console.log(tomorrowHigh);
+
+        const tomorrowLow = tomorrowWeather.day.mintemp_f;
+        console.log(tomorrowLow);
+        
     }
+    getTomorrowWeather();
 
     function getTwoDaysWeather() {
+        const tomorrowWeather2 = weatherData.forecast.forecastday[2]
+        console.log(tomorrowWeather2);
 
-    }
+        const tomorrowDate2 = tomorrowWeather2.date;
+        console.log(tomorrowDate2)
+
+        const tomorrowCondition2 = tomorrowWeather2.day.condition.text;
+        console.log(tomorrowCondition2);
+
+        const tomorrowHigh2 = tomorrowWeather2.day.maxtemp_f;
+        console.log(tomorrowHigh2);
+
+        const tomorrowLow2 = tomorrowWeather2.day.mintemp_f;
+        console.log(tomorrowLow2);
+
+    };
+    getTwoDaysWeather();
 }
