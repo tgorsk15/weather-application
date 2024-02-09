@@ -9,6 +9,8 @@ const apiTemplate = {
     secondBase: '&days=3&aqi=no&alerts=no'
 }
 
+// possibly will help change over data each time a new location is searched:
+let activeWeatherData = ''
 
 // eslint-disable-next-line import/prefer-default-export
 export const weatherRequest = async function () {
@@ -25,9 +27,10 @@ export const weatherRequest = async function () {
     // maybe implement a try and catch here!!:
 
     const weatherData = await response.json();
-    console.log(weatherData)
+    activeWeatherData = weatherData
+    console.log(activeWeatherData)
 
-    processApiController(weatherData);
+    processApiController(activeWeatherData);
 }
 
 
@@ -36,6 +39,13 @@ const searchBar = document.getElementById('search-form');
 const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener('click', (e) => {
+    // eventually put clearWeatherCard function in here
+    // needs to delete Hour Forecast blocks, as these will be re-made
+    // ... other information can just be replaced
+
+    // also have to change the value of 'userLocation' here, so that 
+    // the new API request uses what the user typed in
+
     e.preventDefault();
     console.log('weather searched');
 })

@@ -50,7 +50,6 @@ export const processApiController = function (weatherData) {
     function gatherHourForecast() {
         console.log(weatherData);
         const forecastDay = weatherData.forecast.forecastday[0].hour;
-        // forecastDays.pop();
         console.log(forecastDay);
 
         // trigger a run of the createForecastBox funciton here?
