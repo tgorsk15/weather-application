@@ -29,3 +29,13 @@ export const weatherRequest = async function () {
 
     processApiController(weatherData);
 }
+
+
+// create userForm logic here
+const searchBar = document.getElementById('search-form');
+const searchButton = document.querySelector('.search-button');
+
+searchButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log('weather searched');
+})
