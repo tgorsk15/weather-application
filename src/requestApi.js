@@ -41,7 +41,12 @@ export const weatherRequest = async function () {
     activeWeatherData = weatherData;
     console.log(activeWeatherData);
 
-    processApiController(activeWeatherData);
+    const processRun = processApiController(activeWeatherData);
+    processRun.gatherCurrentWeather();
+    processRun.gatherHourForecast();
+    processRun.getTomorrowWeather();
+    processRun.getTwoDaysWeather();
+
 }
 
 
@@ -74,9 +79,6 @@ const searchBar = document.getElementById('search-bar');
 const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener('click', (e) => {
-    // eventually put clearWeatherCard function in here
-    // needs to delete Hour Forecast blocks, as these will be re-made
-    // ... other information can just be replaced
 
     // also have to change the value of 'userLocation' here, so that 
     // the new API request uses what the user typed in
@@ -89,9 +91,6 @@ searchButton.addEventListener('click', (e) => {
     console.log(searchBar.value);
     apiTemplate.userLocation = searchBar.value;
     
-    // looking like its not possible to actually DELETE the memory of
-    // an API request ... so maybe just simply overriding it will suffice
-    // ... also have to set up a deleteDOM function
     console.log('weather searched');
     deleteRequest();
     weatherRequest();

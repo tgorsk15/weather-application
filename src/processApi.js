@@ -39,7 +39,7 @@ export const processApiController = function (weatherData) {
 
         console.log(weatherData.current.temp_f)
     }
-    gatherCurrentWeather();
+    // gatherCurrentWeather();
 
 
     // create a function that processes each forecast's hour's information
@@ -69,7 +69,7 @@ export const processApiController = function (weatherData) {
         });
         
     }
-    gatherHourForecast();
+    // gatherHourForecast();
 
 
     function getTomorrowWeather() {
@@ -89,7 +89,7 @@ export const processApiController = function (weatherData) {
         console.log(tomorrowLow);
         
     }
-    getTomorrowWeather();
+    // getTomorrowWeather();
 
     function getTwoDaysWeather() {
         const tomorrowWeather2 = weatherData.forecast.forecastday[2]
@@ -108,5 +108,11 @@ export const processApiController = function (weatherData) {
         console.log(tomorrowLow2);
 
     };
-    getTwoDaysWeather();
+    // getTwoDaysWeather();
+
+    return {gatherCurrentWeather, 
+        gatherHourForecast, 
+        getTomorrowWeather, 
+        getTwoDaysWeather
+    }
 }
