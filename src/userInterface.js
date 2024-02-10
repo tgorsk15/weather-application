@@ -2,11 +2,14 @@ import { processApiController } from "./processApi";
 
 import sun from "./icons/sun.png";
 import clouds from "./icons/clouds.png";
-import Rain from "./icons/rain.png";
+import rain from "./icons/rain.png";
 import scattered from "./icons/scattered.png";
 import snow from "./icons/snow.png";
 import partlyCloudy from "./icons/partly-cloudy.png";
 import storm from "./icons/storm.png";
+import mist from "./icons/mist.png";
+import drizzle from "./icons/drizzle.png";
+import fog from "./icons/fog.png";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
@@ -32,6 +35,9 @@ export const controllerDOM = function () {
         } else if (weatherString.includes('partly cloudy')) {
             activeIcon.src = partlyCloudy;
 
+        } else if (weatherString.includes('light rain')) {
+            activeIcon.src = drizzle
+
         } else if (weatherString.includes('cloudy') || weatherString.includes('overcast')) {
             activeIcon.src = clouds
             
@@ -43,7 +49,21 @@ export const controllerDOM = function () {
 
         } else if (weatherString.includes('storm')) {
             activeIcon.src = storm
+
+        } else if (weatherString.includes('mist')) {
+            activeIcon.src = mist
+
+        } else if (weatherString.includes('drizzle')) {
+            activeIcon.src = drizzle
+
+        } else if (weatherString.includes('rain')) {
+            activeIcon.src = rain
+
+        } else if (weatherString.includes('fog')) {
+            activeIcon.src = fog
+            
         }
+
 
     
 
@@ -77,16 +97,17 @@ export const controllerDOM = function () {
         const forecastTemp = document.createElement('h3');
         forecastTemp.textContent = `${temperatureString} F°`;
         forecastBox.appendChild(forecastTemp);
-
-
         
     };
 
 
     function deleteForecastBoxes () {
         const forecastBoxes = document.querySelectorAll('.forecast-box');
-        
         console.log(forecastBoxes);
+
+        forecastBoxes.forEach(box => {
+            forecastContainer.removeChild(box);
+        });
     }
 
     

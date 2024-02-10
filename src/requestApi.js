@@ -93,8 +93,8 @@ searchButton.addEventListener('click', (e) => {
     // an API request ... so maybe just simply overriding it will suffice
     // ... also have to set up a deleteDOM function
     console.log('weather searched');
-    // deleteRequest();
-    // weatherRequest();
+    deleteRequest();
+    weatherRequest();
 })
 
 
