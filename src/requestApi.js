@@ -10,14 +10,24 @@ const apiTemplate = {
 }
 
 // possibly will help change over data each time a new location is searched:
+let activeUrl = ''
 let activeWeatherData = ''
+
+// let abortController;
+
 
 // eslint-disable-next-line import/prefer-default-export
 export const weatherRequest = async function () {
-    console.log(`${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`);
+    // abortController = new AbortController();
+    // const abortSignal = abortController.signal;
+
+    activeUrl = `${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`
+    console.log(activeUrl)
 
     const response = await fetch(`${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`,
-    {mode: 'cors'})
+    {mode: 'cors'
+    // signal: abortSignal
+    })
 
     if (!response.ok) {
         throw new Error('Request failed');
@@ -27,15 +37,27 @@ export const weatherRequest = async function () {
     // maybe implement a try and catch here!!:
 
     const weatherData = await response.json();
-    activeWeatherData = weatherData
-    console.log(activeWeatherData)
+    activeWeatherData = weatherData;
+    console.log(activeWeatherData);
 
     processApiController(activeWeatherData);
 }
 
 
+const deleteRequest = function () {
+    if (activeWeatherData !== null) {
+        console.log(activeWeatherData);
+
+        // abortController.abort();
+        console.log(activeWeatherData);
+    }
+    
+}
+
+
+
 // create userForm logic here
-const searchBar = document.getElementById('search-form');
+const searchBar = document.getElementById('search-bar');
 const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener('click', (e) => {
@@ -45,7 +67,16 @@ searchButton.addEventListener('click', (e) => {
 
     // also have to change the value of 'userLocation' here, so that 
     // the new API request uses what the user typed in
+    
+
 
     e.preventDefault();
+    console.log(searchBar.value);
+    apiTemplate.userLocation = searchBar.value;
+    
     console.log('weather searched');
+    abortRequest();
+    // weatherRequest();
 })
+
+

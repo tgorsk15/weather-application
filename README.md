@@ -1,1 +1,3 @@
 # main-template
+
+Emoji test: 🐕 

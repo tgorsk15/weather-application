@@ -32,7 +32,7 @@ export const controllerDOM = function () {
         } else if (weatherString.includes('partly cloudy')) {
             activeIcon.src = partlyCloudy;
 
-        } else if (weatherString.includes('cloudy')) {
+        } else if (weatherString.includes('cloudy') || weatherString.includes('overcast')) {
             activeIcon.src = clouds
             
         } else if (weatherString.includes('patchy')) {
