@@ -14,38 +14,47 @@ const apiTemplate = {
 let activeUrl = ''
 let activeWeatherData = ''
 
-// let abortController;
-
 
 // eslint-disable-next-line import/prefer-default-export
 export const weatherRequest = async function () {
-    // abortController = new AbortController();
-    // const abortSignal = abortController.signal;
+    const earlyDOMRun = controllerDOM();
 
-    activeUrl = `${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`
-    console.log(activeUrl)
+    try {
+        activeUrl = `${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`
+        console.log(activeUrl)
 
-    const response = await fetch(`${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`,
-    {mode: 'cors'
-    // signal: abortSignal
-    })
+        const response = await fetch(`${apiTemplate.base}${apiTemplate.userLocation}${apiTemplate.secondBase}`,
+        {mode: 'cors'})
 
-    if (!response.ok) {
-        throw new Error('Request failed');
+        if (apiTemplate.userLocation === '') {
+            console.log('alert touched')
+            alert('Please type a location into the search bar')
+            return
+        }
+
+        if (!response.ok) {
+            throw new Error('Request failed');
+        }
+
+
+        console.log(response)
+
+        const weatherData = await response.json();
+        activeWeatherData = weatherData;
+        console.log(activeWeatherData);
+
+        earlyDOMRun.deleteForecastBoxes();
+
+        const processRun = processApiController(activeWeatherData);
+        processRun.gatherCurrentWeather();
+        processRun.gatherHourForecast();
+        processRun.getTomorrowWeather();
+        processRun.getTwoDaysWeather();
+
+    } catch (error) {
+        console.log(error)
     }
-    console.log(response)
-
-    // maybe implement a try and catch here!!:
-
-    const weatherData = await response.json();
-    activeWeatherData = weatherData;
-    console.log(activeWeatherData);
-
-    const processRun = processApiController(activeWeatherData);
-    processRun.gatherCurrentWeather();
-    processRun.gatherHourForecast();
-    processRun.getTomorrowWeather();
-    processRun.getTwoDaysWeather();
+    
 
 }
 
@@ -85,8 +94,8 @@ searchButton.addEventListener('click', (e) => {
     
     e.preventDefault();
 
-    const DOMRun2 = controllerDOM();
-    DOMRun2.deleteForecastBoxes();
+    // const DOMRun2 = controllerDOM();
+    // DOMRun2.deleteForecastBoxes();
 
     console.log(searchBar.value);
     apiTemplate.userLocation = searchBar.value;
