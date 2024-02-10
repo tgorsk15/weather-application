@@ -79,16 +79,21 @@ export const controllerDOM = function () {
         forecastBox.appendChild(forecastTemp);
 
 
+
+        
     };
 
+    
+    function deleteForecastBoxes () {
 
+    }
 
     
 
 
 
 
-    return { createHourBox, getCorrectIcon }
+    return { createHourBox, getCorrectIcon, deleteForecastBoxes }
 }
 
 

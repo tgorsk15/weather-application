@@ -44,13 +44,25 @@ export const weatherRequest = async function () {
 }
 
 
-const deleteRequest = function () {
-    if (activeWeatherData !== null) {
-        console.log(activeWeatherData);
+const deleteRequest = async function () {
 
-        // abortController.abort();
-        console.log(activeWeatherData);
+    console.log(activeUrl);
+
+    const deleteRes = await fetch(`${activeUrl}`, 
+    { mode: 'cors', method: 'DELETE'})
+
+    if (!deleteRes.ok) {
+        throw new Error('Delete Request failed');
     }
+    console.log(deleteRes);
+    const deleteData = await deleteRes.json();
+    console.log(deleteData);
+
+    console.log('delete successful');
+    activeWeatherData = deleteRes;
+
+
+    console.log(activeWeatherData)
     
 }
 
@@ -74,8 +86,11 @@ searchButton.addEventListener('click', (e) => {
     console.log(searchBar.value);
     apiTemplate.userLocation = searchBar.value;
     
+    // looking like its not possible to actually DELETE the memory of
+    // an API request ... so maybe just simply overriding it will suffice
+    // ... also have to set up a deleteDOM function
     console.log('weather searched');
-    abortRequest();
+    deleteRequest();
     // weatherRequest();
 })
 
