@@ -79,13 +79,14 @@ export const controllerDOM = function () {
         forecastBox.appendChild(forecastTemp);
 
 
-
         
     };
 
-    
-    function deleteForecastBoxes () {
 
+    function deleteForecastBoxes () {
+        const forecastBoxes = document.querySelectorAll('.forecast-box');
+        
+        console.log(forecastBoxes);
     }
 
     

@@ -1,5 +1,6 @@
 // create api request here
 import { processApiController } from "./processApi";
+import { controllerDOM } from "./userInterface";
 
 const apiTemplate = {
     base: 'http://api.weatherapi.com/v1/forecast.json?key=291fefa5461a427285a150428240302&q=',
@@ -80,9 +81,11 @@ searchButton.addEventListener('click', (e) => {
     // also have to change the value of 'userLocation' here, so that 
     // the new API request uses what the user typed in
     
-
-
     e.preventDefault();
+
+    const DOMRun2 = controllerDOM();
+    DOMRun2.deleteForecastBoxes();
+
     console.log(searchBar.value);
     apiTemplate.userLocation = searchBar.value;
     
@@ -90,7 +93,7 @@ searchButton.addEventListener('click', (e) => {
     // an API request ... so maybe just simply overriding it will suffice
     // ... also have to set up a deleteDOM function
     console.log('weather searched');
-    deleteRequest();
+    // deleteRequest();
     // weatherRequest();
 })
 
