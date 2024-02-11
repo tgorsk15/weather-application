@@ -111,13 +111,14 @@ export const controllerDOM = function () {
         forecastBoxes.forEach(box => {
             forecastContainer.removeChild(box);
         });
-    }
+    };
 
 
     function changeCurrentInformation (condition, temperature, location) {
         currentLocation.textContent = location;
+        currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
 
-    }
+    };
 
     
 
