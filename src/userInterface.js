@@ -13,7 +13,14 @@ import fog from "./icons/fog.png";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
+
 const topHalf = document.querySelector('top-half');
+const currentWeatherCard = document.querySelector('.current-weather-card');
+const currentInformation = document.querySelector('.current-information');
+const currentLocation = document.querySelector('.current-location');
+const currentCondition = document.querySelector('.current-condition');
+const daysForecastContainer = document.querySelector('.days-forecast-container');
+
 const bottomHalf = document.querySelector('bottom-half');
 const forecastContainer = document.querySelector('.forecast-container');
 
@@ -61,8 +68,6 @@ export const controllerDOM = function () {
             activeIcon.src = fog
 
         }
-
-
     
 
         return activeIcon
@@ -108,12 +113,18 @@ export const controllerDOM = function () {
         });
     }
 
+
+    function changeCurrentInformation (condition, temperature, location) {
+        currentLocation.textContent = location;
+
+    }
+
     
 
 
 
 
-    return { createHourBox, getCorrectIcon, deleteForecastBoxes }
+    return { createHourBox, getCorrectIcon, deleteForecastBoxes, changeCurrentInformation }
 }
 
 
