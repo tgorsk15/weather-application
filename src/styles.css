@@ -23,12 +23,30 @@ body {
 }
 
 .top-half {
-
+    display: grid;
+    grid-template-columns: 3.5fr 1fr;
 }
+
+.current-weather-card {
+    grid-column: 1;
+}
+
+.days-forecast-container {
+    grid-column: 2;
+}
+
+
+
+
 
 .bottom-half {
     width: 100%;
     overflow: hidden;
+}
+
+.forecast-hour-header {
+    margin: 10px 10px ;
+
 }
 
 .forecast-container {

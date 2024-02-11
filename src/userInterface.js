@@ -75,6 +75,12 @@ export const controllerDOM = function () {
     };
 
 
+    function changeWeatherBackground() {
+
+
+    }
+
+
 
     function createHourBox(timeString, weatherConditionString, temperatureString) {
         console.log(timeString);
@@ -118,6 +124,10 @@ export const controllerDOM = function () {
         currentLocation.textContent = location;
         currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
 
+        // perhaps trigger a the function here that changes the background image
+        // of the weather-card based onw hat th econdition is
+        changeWeatherBackground()
+
     };
 
     
@@ -125,7 +135,12 @@ export const controllerDOM = function () {
 
 
 
-    return { createHourBox, getCorrectIcon, deleteForecastBoxes, changeCurrentInformation }
+    return { createHourBox, 
+        getCorrectIcon, 
+        deleteForecastBoxes, 
+        changeCurrentInformation,
+        changeWeatherBackground 
+    }
 }
 
 
