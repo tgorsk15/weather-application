@@ -22,10 +22,8 @@ const forecastContainer = document.querySelector('.forecast-container');
 export const controllerDOM = function () {
 
     function getCorrectIcon(weatherConditionString) {
-        console.log(weatherConditionString);
         const weatherString = weatherConditionString.toLowerCase()
         console.log(weatherString);
-        console.log(typeof(weatherString));
         
         const activeIcon = new Image();
 
@@ -61,7 +59,7 @@ export const controllerDOM = function () {
 
         } else if (weatherString.includes('fog')) {
             activeIcon.src = fog
-            
+
         }
 
 

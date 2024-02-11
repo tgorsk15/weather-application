@@ -1,11 +1,22 @@
+html {
+    height: 100%;
+    /* display: flex; */
+    /* align-items: center; */
+}
+
 body {
+    min-height: 100%;
     background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
 }
 
 .weather-card-container {
     background-color: white;
     min-height: 83vh;
-    max-width: 200vh;
+    max-width: 180vh;
     display: grid;
     grid-template-rows: 2fr 1.2fr;
     

@@ -51,15 +51,11 @@ export const processApiController = function (weatherData) {
 
         // trigger a run of the createForecastBox funciton here?
         forecastDay.forEach(hour => {
-            console.log(hour.time);
             const timeString = hour.time.slice(-5)
-            // console.log(timeString);
 
             const weatherConditionString = hour.condition.text;
-            // console.log(weatherConditionString);
 
             const temperatureString = hour.temp_f
-            console.log(temperatureString);
 
             DOMRun.createHourBox(timeString, weatherConditionString, temperatureString);
         });

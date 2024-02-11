@@ -33,6 +33,7 @@ export const weatherRequest = async function () {
         }
 
         if (!response.ok) {
+            alert('Please enter a valid location!')
             throw new Error('Request failed');
         }
 
