@@ -16,7 +16,9 @@ import sunPic from "./imgs/sunny.jpg";
 import drizzlePic from "./imgs/drizzle.jpg";
 import partCloudPic from "./imgs/partly-cloudy.jpg";
 import stormPic from "./imgs/storm.jpg";
-import rainPic from "./imgs/rain.jpg";
+import rainPic from "./imgs/heavy-rain.jpg";
+import snowPic from "./imgs/snow.jpg";
+import fogPic from "./imgs/fog.jpg";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
@@ -93,6 +95,7 @@ export const controllerDOM = function () {
 
         } else if (condition.includes('cloudy') || condition.includes('overcast')) {
             currentWeatherCard.style.backgroundImage = `url(${cloudPic})`;
+            // currentWeatherCard.style.backgroundImage = `url(${stormPic})`;
 
         } else if (condition.includes('drizzle') || condition.includes('light rain')) {
             currentWeatherCard.style.backgroundImage = `url(${drizzlePic})`;
@@ -102,6 +105,12 @@ export const controllerDOM = function () {
 
         } else if (condition.includes('rain')) {
             currentWeatherCard.style.backgroundImage = `url(${rainPic})`;
+
+        } else if (condition.includes('snow')) {
+            currentWeatherCard.style.backgroundImage = `url(${snowPic})`;
+
+        } else if (condition.includes('mist') || condition.includes('fog')) {
+            currentWeatherCard.style.backgroundImage = `url(${fogPic})`;
         }
 
     }
