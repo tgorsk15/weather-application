@@ -13,6 +13,10 @@ import fog from "./icons/fog.png";
 
 import cloudPic from "./imgs/overcast.jpg";
 import sunPic from "./imgs/sunny.jpg";
+import drizzlePic from "./imgs/drizzle.jpg";
+import partCloudPic from "./imgs/partly-cloudy.jpg";
+import stormPic from "./imgs/storm.jpg";
+import rainPic from "./imgs/rain.jpg";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
@@ -84,8 +88,20 @@ export const controllerDOM = function () {
         if (condition.includes('sunny') || condition.includes('clear')) {
             currentWeatherCard.style.backgroundImage = `url(${sunPic})`;
 
+        } else if (condition.includes('patchy') || condition.includes('partly cloudy')) {
+            currentWeatherCard.style.backgroundImage = `url(${partCloudPic})`;
+
         } else if (condition.includes('cloudy') || condition.includes('overcast')) {
             currentWeatherCard.style.backgroundImage = `url(${cloudPic})`;
+
+        } else if (condition.includes('drizzle') || condition.includes('light rain')) {
+            currentWeatherCard.style.backgroundImage = `url(${drizzlePic})`;
+
+        } else if (condition.includes('storm') || condition.includes('lightning')) {
+            currentWeatherCard.style.backgroundImage = `url(${stormPic})`;
+
+        } else if (condition.includes('rain')) {
+            currentWeatherCard.style.backgroundImage = `url(${rainPic})`;
         }
 
     }
@@ -130,7 +146,8 @@ export const controllerDOM = function () {
     };
 
 
-    function changeCurrentInformation (condition, temperature, location) {
+    function changeCurrentInformation (condition, temperature, location, weatherData) {
+        console.log(weatherData)
         currentLocation.textContent = location;
         currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
 

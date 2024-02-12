@@ -40,7 +40,7 @@ export const processApiController = function (weatherData) {
         const currentLocation = weatherData.location.name;
         console.log(currentLocation);
 
-        DOMRun.changeCurrentInformation(weatherCondition, currentTemperature, currentLocation)
+        DOMRun.changeCurrentInformation(weatherCondition, currentTemperature, currentLocation, weatherData)
     }
 
 
