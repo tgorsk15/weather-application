@@ -31,7 +31,7 @@ body {
 
 .current-weather-card {
     grid-column: 1;
-    /* background-image: url('./imgs/overcast.jpg'); */
+    transition: background-image 5s;
 }
 
 .current-information {

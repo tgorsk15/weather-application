@@ -12,6 +12,7 @@ import drizzle from "./icons/drizzle.png";
 import fog from "./icons/fog.png";
 
 import cloudPic from "./imgs/overcast.jpg";
+import sunPic from "./imgs/sunny.jpg";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
@@ -77,10 +78,14 @@ export const controllerDOM = function () {
     };
 
 
-    function changeWeatherBackground(condition) {
-        
-        if (condition.includes('cloudy') || condition.includes('overcast')) {
-            // currentWeatherCard.style.backgroundImage = "url('./imgs/overcast.jpg')";
+    function changeWeatherBackground(conditionString) {
+        const condition = conditionString.toLowerCase();
+
+        if (condition.includes('sunny') || condition.includes('clear')) {
+            currentWeatherCard.style.backgroundImage = `url(${sunPic})`;
+
+        } else if (condition.includes('cloudy') || condition.includes('overcast')) {
+            currentWeatherCard.style.backgroundImage = `url(${cloudPic})`;
         }
 
     }
