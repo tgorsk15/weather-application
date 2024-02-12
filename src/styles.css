@@ -25,11 +25,21 @@ body {
 .top-half {
     display: grid;
     grid-template-columns: 3.5fr 1fr;
+    padding: 0px 15px;
+    padding-top: 15px;
 }
 
 .current-weather-card {
     grid-column: 1;
+    /* background-image: url('./imgs/overcast.jpg'); */
 }
+
+.current-information {
+    margin-left: 40px;
+    margin-top: 40px;
+    /* color: white; */
+}
+
 
 .days-forecast-container {
     grid-column: 2;

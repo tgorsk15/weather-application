@@ -11,6 +11,8 @@ import mist from "./icons/mist.png";
 import drizzle from "./icons/drizzle.png";
 import fog from "./icons/fog.png";
 
+import cloudPic from "./imgs/overcast.jpg";
+
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
 
@@ -75,8 +77,11 @@ export const controllerDOM = function () {
     };
 
 
-    function changeWeatherBackground() {
-
+    function changeWeatherBackground(condition) {
+        
+        if (condition.includes('cloudy') || condition.includes('overcast')) {
+            // currentWeatherCard.style.backgroundImage = "url('./imgs/overcast.jpg')";
+        }
 
     }
 
@@ -126,7 +131,7 @@ export const controllerDOM = function () {
 
         // perhaps trigger a the function here that changes the background image
         // of the weather-card based onw hat th econdition is
-        changeWeatherBackground()
+        changeWeatherBackground(condition);
 
     };
 
