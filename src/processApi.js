@@ -90,7 +90,8 @@ export const processApiController = function (weatherData) {
         console.log(tomorrowWeather2);
 
         const tomorrowDate2 = tomorrowWeather2.date;
-        console.log(tomorrowDate2)
+        const dateFormatted = format(tomorrowDate2, 'eeee eo, yyyy');
+        console.log(dateFormatted);
 
         const tomorrowCondition2 = tomorrowWeather2.day.condition.text;
         console.log(tomorrowCondition2);
@@ -100,6 +101,8 @@ export const processApiController = function (weatherData) {
 
         const tomorrowLow2 = tomorrowWeather2.day.mintemp_f;
         console.log(tomorrowLow2);
+
+        DOMRun.createTomorrow2Box(dateFormatted, tomorrowCondition2, tomorrowHigh2, tomorrowLow2)
 
     };
 

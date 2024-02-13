@@ -146,10 +146,21 @@ export const controllerDOM = function () {
         tomorrowContainer.appendChild(activeIcon);
         
         // create tempBox function that is triggered here
-        // should create a separate container for temps, that BOTH,
-        // tomorrow and tomorrow2 can call upon
         createTempBox(tempHigh, tempLow, tomorrowContainer);
 
+    }
+
+    function createTomorrow2Box (date, condition, tempHigh, tempLow) {
+        const dateHeader = document.createElement('h3');
+        dateHeader.textContent = date;
+        tomorrow2Container.appendChild(dateHeader);
+
+        const activeIcon = getCorrectIcon(condition);
+        activeIcon.classList.add('day-forecast-icon');
+        tomorrow2Container.appendChild(activeIcon);
+        
+        // create tempBox function that is triggered here
+        createTempBox(tempHigh, tempLow, tomorrow2Container);
     }
 
 
@@ -204,7 +215,8 @@ export const controllerDOM = function () {
 
 
     return { createHourBox,
-        createTomorrowBox, 
+        createTomorrowBox,
+        createTomorrow2Box, 
         getCorrectIcon, 
         deleteForecastBoxes, 
         changeCurrentInformation,
