@@ -10,6 +10,7 @@ import mist from "./icons/mist.png";
 import drizzle from "./icons/drizzle.png";
 import fog from "./icons/fog.png";
 import rain from "./icons/rain.png"
+import arrow from "./icons/arrow-right.png";
 
 import cloudPic from "./imgs/overcast.jpg";
 import sunPic from "./imgs/sunny.jpg";
@@ -129,9 +130,16 @@ export const controllerDOM = function () {
         lowTempHeader.textContent = `${tempLow}°`;
         highLowBox.appendChild(lowTempHeader);
 
+        const tempArrow = new Image();
+        tempArrow.src = arrow;
+        tempArrow.classList.add('temp-arrow')
+        highLowBox.appendChild(tempArrow);
+
         const highTempHeader = document.createElement('h3');
         highTempHeader.textContent = `${tempHigh}°`;
         highLowBox.appendChild(highTempHeader);
+
+        
     }
 
 
