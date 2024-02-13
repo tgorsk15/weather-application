@@ -23,6 +23,8 @@ import fogPic from "./imgs/fog.jpg";
 
 
 const weatherCardContainer = document.querySelector('.weather-card-container');
+const todayDate = document.querySelector('.today-date');
+const todayTime = document.querySelector('.today-time');
 
 const topHalf = document.querySelector('top-half');
 const currentWeatherCard = document.querySelector('.current-weather-card');
@@ -219,7 +221,9 @@ export const controllerDOM = function () {
 
 
 
-    function changeCurrentInformation (condition, temperature, location, region, weatherData) {
+    function changeCurrentInformation (condition, temperature, location, 
+        region, time, date, weatherData) {
+
         console.log(weatherData)
         currentLocation.textContent = `${location}, ${region}`;
         currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
@@ -227,6 +231,9 @@ export const controllerDOM = function () {
         // perhaps trigger a the function here that changes the background image
         // of the weather-card based onw hat th econdition is
         changeWeatherBackground(condition);
+
+        todayTime.textContent = time;
+        todayDate.textContent = date;
 
     };
 

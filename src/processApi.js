@@ -5,21 +5,6 @@ import { weatherRequest } from "./requestApi";
 import { controllerDOM } from "./userInterface";
 
 
-// const currentWeatherObject = {
-//     currentWeather: '',
-
-//     currentTemp: '',
-
-//     airQuality: '',
-
-//     time: ''
-// }
-
-// const currentForecastObject = {
-
-// }
-
-
 
 // eslint-disable-next-line import/prefer-default-export
 export const processApiController = function (weatherData) {
@@ -37,8 +22,15 @@ export const processApiController = function (weatherData) {
         const currentRegion = weatherData.location.region;
         console.log(currentLocation);
 
+        const currentDate = new Date()
+        const timeFormatted = format(currentDate, 'hh:mm aa')
+        console.log(timeFormatted);
+
+        const dateFormatted = format(currentDate, 'eeee eo, yyyy')
+        console.log(dateFormatted);
+
         DOMRun.changeCurrentInformation(weatherCondition, currentTemperature, 
-            currentLocation, currentRegion, weatherData)
+            currentLocation, currentRegion, timeFormatted, dateFormatted, weatherData)
     }
 
 
