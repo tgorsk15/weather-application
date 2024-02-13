@@ -118,6 +118,24 @@ export const controllerDOM = function () {
     }
 
 
+    function createTempBox(tempHigh, tempLow, fatherContainer) {
+        // add arrow icon into this function
+
+        const highLowBox = document.createElement('div')
+        highLowBox.classList.add('high-low-box');
+        fatherContainer.appendChild(highLowBox);
+
+        const lowTempHeader = document.createElement('h3');
+        lowTempHeader.textContent = `${tempLow}°`;
+        highLowBox.appendChild(lowTempHeader);
+
+        const highTempHeader = document.createElement('h3');
+        highTempHeader.textContent = `${tempHigh}°`;
+        highLowBox.appendChild(highTempHeader);
+    }
+
+
+
     function createTomorrowBox(date, condition, tempHigh, tempLow) {
         const dateHeader = document.createElement('h3');
         dateHeader.textContent = date;
@@ -127,6 +145,10 @@ export const controllerDOM = function () {
         activeIcon.classList.add('day-forecast-icon');
         tomorrowContainer.appendChild(activeIcon);
         
+        // create tempBox function that is triggered here
+        // should create a separate container for temps, that BOTH,
+        // tomorrow and tomorrow2 can call upon
+        createTempBox(tempHigh, tempLow, tomorrowContainer);
 
     }
 

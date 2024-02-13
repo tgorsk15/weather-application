@@ -53,15 +53,34 @@ body {
 
 .tomorrow-container {
     grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* justify-content: center; */
 }
 
 .tomorrow2-container {
 grid-row: 2;
 }
 
+.tomorrow-container > h3 {
+    align-self: center;
+    font-size: 23px;
+}
+
 .day-forecast-icon {
     height: 95px;
     width: 95px;
+    align-self: center;
+}
+
+.high-low-box {
+    display: flex;
+    max-height: 50px;
+    margin: 0px 45px;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 22px;
 }
 
 
