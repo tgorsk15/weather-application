@@ -5,6 +5,7 @@ html {
 }
 
 body {
+    position: relative;
     min-height: 100%;
     background: rgb(2,0,36);
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(22,70,74,1) 20%, rgba(100,159,136,1) 100%);
@@ -14,9 +15,37 @@ body {
     align-items: center; 
 }
 
+#search-form {
+    position: absolute;
+    top: 30px;
+    left: 210px;
+    display: flex;
+    align-items: center;
+    
+}
+
+#search-bar {
+    height: 18px;
+    padding: 5px;
+    width: 220px;
+    border: none;
+    border-radius: 20px;
+}
+
+.search-button {
+    background: none;
+    border: none;
+    /* margin-top: 3px; */
+}
+
+.search-icon {
+    height: 15px;
+    /* margin-top: 5px; */
+}
+
 .weather-card-container {
     background-color: white;
-    min-height: 83vh;
+    max-height: 83vh;
     max-width: 180vh;
     display: grid;
     grid-template-rows: 2fr 1.2fr;
@@ -95,9 +124,6 @@ body {
 .temp-arrow {
     width: 50px;
 }
-
-
-
 
 
 .bottom-half {
