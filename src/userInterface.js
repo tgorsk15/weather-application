@@ -155,9 +155,9 @@ export const controllerDOM = function () {
     };
 
 
-    function changeCurrentInformation (condition, temperature, location, weatherData) {
+    function changeCurrentInformation (condition, temperature, location, region, weatherData) {
         console.log(weatherData)
-        currentLocation.textContent = location;
+        currentLocation.textContent = `${location}, ${region}`;
         currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
 
         // perhaps trigger a the function here that changes the background image
