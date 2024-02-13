@@ -1,10 +1,4 @@
-// create object that holds API data pull everytime
-// one is requested
-// ... store the object within an array
 
-
-// an instance of a weather info object would need to get deleted
-// once the user searches a new location
 import { format } from "date-fns"
 
 import { weatherRequest } from "./requestApi";
@@ -75,7 +69,6 @@ export const processApiController = function (weatherData) {
         console.log(tomorrowWeather);
 
         const tomorrowDate = tomorrowWeather.date;
-        console.log(tomorrowDate)
         const dateFormatted = format(tomorrowDate, 'eeee eo, yyyy');
         console.log(dateFormatted);
 
@@ -87,6 +80,8 @@ export const processApiController = function (weatherData) {
 
         const tomorrowLow = tomorrowWeather.day.mintemp_f;
         console.log(tomorrowLow);
+
+        DOMRun.createTomorrowBox(dateFormatted, tomorrowCondition, tomorrowHigh, tomorrowLow);
         
     }
 

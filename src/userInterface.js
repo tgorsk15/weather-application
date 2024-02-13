@@ -29,6 +29,8 @@ const currentInformation = document.querySelector('.current-information');
 const currentLocation = document.querySelector('.current-location');
 const currentCondition = document.querySelector('.current-condition');
 const daysForecastContainer = document.querySelector('.days-forecast-container');
+const tomorrowContainer = document.querySelector('.tomorrow-container');
+const tomorrow2Container = document.querySelector('.tomorrow2-container');
 
 const bottomHalf = document.querySelector('bottom-half');
 const forecastContainer = document.querySelector('.forecast-container');
@@ -116,40 +118,50 @@ export const controllerDOM = function () {
     }
 
 
+    function createTomorrowBox(date, condition, tempHigh, tempLow) {
+        const dateHeader = document.createElement('h3');
+        dateHeader.textContent = date;
+        tomorrowContainer.appendChild(dateHeader);
+
+        const activeIcon = getCorrectIcon(condition);
+        activeIcon.classList.add('day-forecast-icon');
+        tomorrowContainer.appendChild(activeIcon);
+        
+
+    }
+
+
 
     function createHourBox(timeString, weatherConditionString, temperatureString) {
-        // console.log(timeString);
-        // console.log(weatherConditionString);
-        // console.log(temperatureString);
 
-        const forecastBox = document.createElement('div');
-        forecastBox.classList.add('forecast-box');
-        forecastContainer.appendChild(forecastBox);
+        const forecastHourBox = document.createElement('div');
+        forecastHourBox.classList.add('forecast-hour-box');
+        forecastContainer.appendChild(forecastHourBox);
 
         const forecastTime = document.createElement('h3');
         forecastTime.textContent = timeString;
-        forecastBox.appendChild(forecastTime);
+        forecastHourBox.appendChild(forecastTime);
 
         // placeholder for pulling icons
         // maybe make a separate function for determing wich icon will get used
         // based on what the weather text says and call it here
         const activeIcon = getCorrectIcon(weatherConditionString);
         activeIcon.classList.add('forecast-icon');
-        forecastBox.appendChild(activeIcon)
+        forecastHourBox.appendChild(activeIcon)
 
 
         const forecastTemp = document.createElement('h3');
         forecastTemp.textContent = `${temperatureString} F°`;
-        forecastBox.appendChild(forecastTemp);
+        forecastHourBox.appendChild(forecastTemp);
         
     };
 
 
     function deleteForecastBoxes () {
-        const forecastBoxes = document.querySelectorAll('.forecast-box');
-        console.log(forecastBoxes);
+        const forecastHourBoxes = document.querySelectorAll('.forecast-hour-box');
+        console.log(forecastHourBoxes);
 
-        forecastBoxes.forEach(box => {
+        forecastHourBoxes.forEach(box => {
             forecastContainer.removeChild(box);
         });
     };
@@ -169,9 +181,8 @@ export const controllerDOM = function () {
     
 
 
-
-
-    return { createHourBox, 
+    return { createHourBox,
+        createTomorrowBox, 
         getCorrectIcon, 
         deleteForecastBoxes, 
         changeCurrentInformation,

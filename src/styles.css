@@ -47,6 +47,21 @@ body {
 
 .days-forecast-container {
     grid-column: 2;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.tomorrow-container {
+    grid-row: 1;
+}
+
+.tomorrow2-container {
+grid-row: 2;
+}
+
+.day-forecast-icon {
+    height: 95px;
+    width: 95px;
 }
 
 
@@ -73,7 +88,7 @@ body {
 
 }
 
-.forecast-box {
+.forecast-hour-box {
     min-height: 80px;
     min-width: 100px;
     background-color: lightsalmon;
