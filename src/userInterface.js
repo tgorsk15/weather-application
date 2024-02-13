@@ -118,9 +118,9 @@ export const controllerDOM = function () {
 
 
     function createHourBox(timeString, weatherConditionString, temperatureString) {
-        console.log(timeString);
-        console.log(weatherConditionString);
-        console.log(temperatureString);
+        // console.log(timeString);
+        // console.log(weatherConditionString);
+        // console.log(temperatureString);
 
         const forecastBox = document.createElement('div');
         forecastBox.classList.add('forecast-box');
