@@ -2,7 +2,6 @@ import { processApiController } from "./processApi";
 
 import sun from "./icons/sun.png";
 import clouds from "./icons/clouds.png";
-import rain from "./icons/rain.png";
 import scattered from "./icons/scattered.png";
 import snow from "./icons/snow.png";
 import partlyCloudy from "./icons/partly-cloudy.png";
@@ -10,6 +9,7 @@ import storm from "./icons/storm.png";
 import mist from "./icons/mist.png";
 import drizzle from "./icons/drizzle.png";
 import fog from "./icons/fog.png";
+import rain from "./icons/rain.png"
 
 import cloudPic from "./imgs/overcast.jpg";
 import sunPic from "./imgs/sunny.jpg";
@@ -63,7 +63,10 @@ export const controllerDOM = function () {
         } else if (weatherString.includes('snow')) {
             activeIcon.src = snow
 
-        } else if (weatherString.includes('storm')) {
+        } else if (weatherString.includes('rain') || weatherString.includes('moderate rain')) {
+            activeIcon.src = rain
+
+        } else if (weatherString.includes('thunder') || weatherString.includes('lightning')) {
             activeIcon.src = storm
 
         } else if (weatherString.includes('mist')) {
@@ -72,10 +75,7 @@ export const controllerDOM = function () {
         } else if (weatherString.includes('drizzle')) {
             activeIcon.src = drizzle
 
-        } else if (weatherString.includes('rain')) {
-            activeIcon.src = rain
-
-        } else if (weatherString.includes('fog')) {
+        }  else if (weatherString.includes('fog')) {
             activeIcon.src = fog
 
         }
@@ -199,6 +199,17 @@ export const controllerDOM = function () {
         });
     };
 
+    function deleteTomorrowBoxes() {
+        while (tomorrowContainer.firstChild) {
+            tomorrowContainer.removeChild(tomorrowContainer.lastChild);
+        }
+
+        while (tomorrow2Container.firstChild) {
+            tomorrow2Container.removeChild(tomorrow2Container.lastChild);
+        }        
+    }
+
+
 
     function changeCurrentInformation (condition, temperature, location, region, weatherData) {
         console.log(weatherData)
@@ -218,7 +229,8 @@ export const controllerDOM = function () {
         createTomorrowBox,
         createTomorrow2Box, 
         getCorrectIcon, 
-        deleteForecastBoxes, 
+        deleteForecastBoxes,
+        deleteTomorrowBoxes, 
         changeCurrentInformation,
         changeWeatherBackground 
     }

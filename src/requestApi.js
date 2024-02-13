@@ -45,6 +45,7 @@ export const weatherRequest = async function () {
         console.log(activeWeatherData);
 
         earlyDOMRun.deleteForecastBoxes();
+        earlyDOMRun.deleteTomorrowBoxes();
 
         const processRun = processApiController(activeWeatherData);
         processRun.gatherCurrentWeather();
