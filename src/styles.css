@@ -13,12 +13,20 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center; 
+    margin: 0px;
+}
+
+.taskbar-container {
+    min-width: 1438px;
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0px 50px; */
 }
 
 #search-form {
-    position: absolute;
-    top: 30px;
-    left: 210px;
+    /* position: absolute; */
+    /* top: 30px;
+    left: 210px; */
     display: flex;
     align-items: center;
     
@@ -42,6 +50,15 @@ body {
     height: 15px;
     /* margin-top: 5px; */
 }
+
+.date-holder {
+    display: flex;
+    min-width: 350px;
+    justify-content: space-between;
+}
+
+
+/* dashboard section: */
 
 .weather-card-container {
     background-color: white;
