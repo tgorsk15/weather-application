@@ -5,23 +5,25 @@
 
 // an instance of a weather info object would need to get deleted
 // once the user searches a new location
+import { format } from "date-fns"
+
 import { weatherRequest } from "./requestApi";
 import { controllerDOM } from "./userInterface";
 
 
-const currentWeatherObject = {
-    currentWeather: '',
+// const currentWeatherObject = {
+//     currentWeather: '',
 
-    currentTemp: '',
+//     currentTemp: '',
 
-    airQuality: '',
+//     airQuality: '',
 
-    time: ''
-}
+//     time: ''
+// }
 
-const currentForecastObject = {
+// const currentForecastObject = {
 
-}
+// }
 
 
 
@@ -74,6 +76,8 @@ export const processApiController = function (weatherData) {
 
         const tomorrowDate = tomorrowWeather.date;
         console.log(tomorrowDate)
+        const dateFormatted = format(tomorrowDate, 'eeee eo, yyyy');
+        console.log(dateFormatted);
 
         const tomorrowCondition = tomorrowWeather.day.condition.text;
         console.log(tomorrowCondition);
