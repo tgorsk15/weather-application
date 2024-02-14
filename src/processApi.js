@@ -1,7 +1,6 @@
 
-import { format } from "date-fns"
+import { format, parse } from "date-fns"
 
-import { weatherRequest } from "./requestApi";
 import { controllerDOM } from "./userInterface";
 
 
@@ -14,6 +13,12 @@ export const processApiController = function (weatherData) {
     const DOMRun = controllerDOM();
    
 
+    function toStandardTime(string) {
+        const newTimeString = format(parse(string, 'HH:mm', new Date), 'h:mm aa')
+        console.log(newTimeString);
+        return newTimeString
+
+    }
 
     function gatherCurrentWeather() {
         const weatherCondition = weatherData.current.condition.text;
@@ -44,13 +49,16 @@ export const processApiController = function (weatherData) {
 
         // trigger a run of the createForecastBox funciton here?
         forecastDay.forEach(hour => {
+
             const timeString = hour.time.slice(-5)
+            // const foremattedTimeString = format(timeString, 'hh:mm aa');
+            // convert to standard time:
+            const standardTimeString = toStandardTime(timeString);
 
             const weatherConditionString = hour.condition.text;
-
             const temperatureString = hour.temp_f
 
-            DOMRun.createHourBox(timeString, weatherConditionString, temperatureString);
+            DOMRun.createHourBox(standardTimeString, weatherConditionString, temperatureString);
         });
         
     }
@@ -101,6 +109,7 @@ export const processApiController = function (weatherData) {
     return {gatherCurrentWeather, 
         gatherHourForecast, 
         getTomorrowWeather, 
-        getTwoDaysWeather
+        getTwoDaysWeather,
+        toStandardTime
     }
 }

@@ -182,6 +182,8 @@ export const controllerDOM = function () {
         forecastContainer.appendChild(forecastHourBox);
 
         const forecastTime = document.createElement('h3');
+
+        
         forecastTime.textContent = timeString;
         forecastHourBox.appendChild(forecastTime);
 
