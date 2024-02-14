@@ -90,6 +90,7 @@ body {
     grid-column: 1;
     transition: background-image 5s;
     border-radius: 25px;
+    box-shadow: -3px -1px 10px -4px;
 }
 
 .current-information {
@@ -175,12 +176,20 @@ body {
 .forecast-hour-box {
     min-height: 80px;
     min-width: 100px;
-    background-color: lightsalmon;
+    background-color: rgba(127, 188, 249, 0.6);
     margin: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 4px solid whitesmoke;
+    border-radius: 10px;
+}
+
+.forecast-hour-box:hover {
+    transition: all 0.3s;
+    transform: scale(1.08);
+    background-color: rgba(167, 205, 243, 0.6);
 }
 
 .forecast-hour-box > h3 {
