@@ -3,7 +3,7 @@ import { processApiController } from "./processApi";
 import { controllerDOM } from "./userInterface";
 
 const apiTemplate = {
-    base: 'http://api.weatherapi.com/v1/forecast.json?key=291fefa5461a427285a150428240302&q=',
+    base: 'https://api.weatherapi.com/v1/forecast.json?key=291fefa5461a427285a150428240302&q=',
 
     userLocation: 'chicago',
 
