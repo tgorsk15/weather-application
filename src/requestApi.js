@@ -7,7 +7,7 @@ const apiTemplate = {
 
     userLocation: 'chicago',
 
-    secondBase: '&days=3&aqi=no&alerts=no'
+    secondBase: '&days=1&aqi=no&alerts=no'
 }
 
 // possibly will help change over data each time a new location is searched:
