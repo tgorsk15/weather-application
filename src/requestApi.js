@@ -90,14 +90,8 @@ const searchBar = document.getElementById('search-bar');
 const searchButton = document.querySelector('.search-button');
 
 searchButton.addEventListener('click', (e) => {
-
-    // also have to change the value of 'userLocation' here, so that 
-    // the new API request uses what the user typed in
     
     e.preventDefault();
-
-    // const DOMRun2 = controllerDOM();
-    // DOMRun2.deleteForecastBoxes();
 
     console.log(searchBar.value);
     apiTemplate.userLocation = searchBar.value;

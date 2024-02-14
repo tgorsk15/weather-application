@@ -14,8 +14,7 @@ export const processApiController = function (weatherData) {
    
 
     function toStandardTime(string) {
-        const newTimeString = format(parse(string, 'HH:mm', new Date), 'h:mm aa')
-        console.log(newTimeString);
+        const newTimeString = format(parse(string, 'HH:mm', new Date), 'h:mm aa');
         return newTimeString
 
     }
@@ -25,14 +24,13 @@ export const processApiController = function (weatherData) {
         const currentTemperature = weatherData.current.temp_f;
         const currentLocation = weatherData.location.name;
         const currentRegion = weatherData.location.region;
-        console.log(currentLocation);
 
         const currentDate = new Date()
         const timeFormatted = format(currentDate, 'hh:mm aa')
-        console.log(timeFormatted);
+        // console.log(timeFormatted);
 
         const dateFormatted = format(currentDate, 'eeee eo, yyyy')
-        console.log(dateFormatted);
+        // console.log(dateFormatted);
 
         DOMRun.changeCurrentInformation(weatherCondition, currentTemperature, 
             currentLocation, currentRegion, timeFormatted, dateFormatted, weatherData)
@@ -47,14 +45,12 @@ export const processApiController = function (weatherData) {
         const forecastDay = weatherData.forecast.forecastday[0].hour;
         console.log(forecastDay);
 
-        // trigger a run of the createForecastBox funciton here?
+        // trigger a run of the createForecastBox funciton here:
         forecastDay.forEach(hour => {
 
             const timeString = hour.time.slice(-5)
-            // const foremattedTimeString = format(timeString, 'hh:mm aa');
             // convert to standard time:
             const standardTimeString = toStandardTime(timeString);
-
             const weatherConditionString = hour.condition.text;
             const temperatureString = hour.temp_f
 

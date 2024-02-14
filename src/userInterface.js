@@ -187,9 +187,7 @@ export const controllerDOM = function () {
         forecastTime.textContent = timeString;
         forecastHourBox.appendChild(forecastTime);
 
-        // placeholder for pulling icons
-        // maybe make a separate function for determing wich icon will get used
-        // based on what the weather text says and call it here
+        // funcion for pulling correct icon
         const activeIcon = getCorrectIcon(weatherConditionString);
         activeIcon.classList.add('forecast-icon');
         forecastHourBox.appendChild(activeIcon)
@@ -230,8 +228,7 @@ export const controllerDOM = function () {
         currentLocation.textContent = `${location}, ${region}`;
         currentCondition.innerHTML = `${condition}, &nbsp;&nbsp;${temperature}F°`
 
-        // perhaps trigger a the function here that changes the background image
-        // of the weather-card based onw hat th econdition is
+        // changes background pic based on weather
         changeWeatherBackground(condition);
 
         todayTime.textContent = time;
