@@ -36,9 +36,7 @@ export const processApiController = function (weatherData) {
             currentLocation, currentRegion, timeFormatted, dateFormatted, weatherData)
     }
 
-
-    // create a function that processes each forecast's hour's information
-    // create a function factory to reduce code
+    
 
     function gatherHourForecast() {
         console.log(weatherData);

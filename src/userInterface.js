@@ -182,9 +182,8 @@ export const controllerDOM = function () {
         forecastContainer.appendChild(forecastHourBox);
 
         const forecastTime = document.createElement('h3');
-
-        
         forecastTime.textContent = timeString;
+        forecastTime.classList.add('forecast-hour-time');
         forecastHourBox.appendChild(forecastTime);
 
         // funcion for pulling correct icon
